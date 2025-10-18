@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li{
+            list-style-type: none;
+        }
+        .nav{
+            border: 1px solid black;
+            height: 100px;
+            width: 100vw;
+            background-color: rgb(73, 110, 233)  ;
+            color: antiquewhite;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3rem;
+            align-items: center;
+        }
+
+        .nav .icons ul{
+            display: flex;
+            gap: 1rem ;
+        }
+
+        .nav .icons ul li{
+            font-size: 1.1rem;
+        }
+
+        .nav .icons ul li:hover{
+            cursor: pointer;
+            border-bottom: 3px solid rgb(50, 50, 141);
+            transition: all 0.5s ease;
+        }
+
+        .logo{
+            font-size: 1.5rem;
+        }
+
+        .nav .side-icons ul li {
+            font-size: 1.1rem;
+        }
+
+        .hemburer-menu{
+            display: none;
+        }
+        .hemburer-menu img{
+            width: 1.5rem;
+            cursor: pointer;
+        }
+        .side-bar-menu{
+            display: none;
+        }
+
+        .off-screen-menu{
+            background-color: rgba(34, 37, 49, 0.8);
+            height: 100vh;
+            width: 100%;
+            max-width: 450px;
+            position: fixed;
+            top: 0;
+            right: -450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+        }
+
+        .off-screen-menu ul{
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 70px;
+        }
+
+         .off-screen-menu ul li:hover {
+            cursor: pointer;
+            border-bottom: 3px solid rgb(50, 50, 141);
+            transition: all 0.5s ease;
+         }
+
+        .off-screen-menu .hemburer-menu{
+            position: fixed;
+            top: 35px;
+            right: 26px;
+            transition: right 0.5s ease-in 0.5s;
+        }
+
+        @media (max-width:468px){
+            .nav{
+                padding: 0 1.5rem;
+            }
+            .nav .icons, .side-icons{
+                display: none;
+            }
+            .hemburer-menu{
+                display: block;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+
+    <!-- Hambergur menu  -->
+     <div class="off-screen-menu">
+         <div class="hemburer-menu">
+            <img src="icons8-hamburger-menu.gif" alt="">
+        </div>
+        <ul>
+             <li>Home</li>
+                <li>About</li>
+                <li>Projects</li>
+                <li>Skills</li>
+        </ul>
+       
+     </div>
+    <div class="nav">
+        <div class="logo">LOGO</div>
+        <div class="icons">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Projects</li>
+                <li>Skills</li>
+            </ul>
+        </div>
+        <div class="side-icons">
+            <ul>
+                <li>Hire me</li>
+            </ul>
+        </div>
+        <div class="hemburer-menu">
+            <img src="icons8-hamburger-menu.gif" alt="">
+        </div>
+    </div>
+
+   <script>
+    let hemburger_menu = document.querySelector(".hemburer-menu");
+    let off_screen_menu = document.querySelector(".off-screen-menu")
+
+    hemburger_menu.addEventListener("click", ()=>{
+        if(off_screen_menu.style.right == "-450px"){
+             off_screen_menu.style.right = "0"
+        }
+        else{
+            off_screen_menu.style.right = "-450px"
+        }
+       
+    })
+
+   </script>
+    
+</body>
+</html>
