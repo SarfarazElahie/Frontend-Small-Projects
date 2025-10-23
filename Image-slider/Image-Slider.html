@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image Slider</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            img{
+                width: 300px;           
+                height: 300px;        
+                object-fit: fill;     
+                border-radius: 10px;  
+            }
+
+            .image-galery{
+              width: 1200px;
+              display: flex;
+              justify-content: space-around;
+              overflow-x: scroll;
+              margin: 20px 40px;
+            }
+
+            .image-galery div{
+                /* width: 100%;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-column-gap: 20px;
+                padding: 10px;
+                margin: 0 5px; */
+
+                display: flex;
+            }
+
+            .image-galery div span{
+                margin: 0 5px;
+            }
+
+            .next, .prev{
+                display: inline;
+                font-size: 24px;
+                font-weight: bold;
+                padding: 4px 8px ;
+                background-color: lightblue;
+                cursor: pointer;
+                position: relative;
+                left: 500px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="image-galery">
+        <div>
+           
+            <span><img src="lake-mountain-fog-mist-scenery-ai-4k-wallpaper-uhdpaper.jpeg" class="slider" alt=""></span>
+            <span><img src="landscape-anime-digital-art-fantasy-art-wallpaper-9b468c3dc3116f4905f43bc9cddc0cf0.jpeg" class="slider" alt=""></span>
+            <span><img src="neon-4k-hd-best-for-desktop-wallpaper-b896bd6800903c48d09c01fed852c41a.jpeg" class="slider" alt=""></span>
+            <!-- <span><img src="wallpaer.png" alt=""></span> -->
+        </div>
+         <div>
+           
+            <span><img src="lake-mountain-fog-mist-scenery-ai-4k-wallpaper-uhdpaper.jpeg" class="slider" alt=""></span>
+            <span><img src="landscape-anime-digital-art-fantasy-art-wallpaper-9b468c3dc3116f4905f43bc9cddc0cf0.jpeg" class="slider" alt=""></span>
+            <span><img src="neon-4k-hd-best-for-desktop-wallpaper-b896bd6800903c48d09c01fed852c41a.jpeg" class="slider" alt=""></span>
+            <!-- <span><img src="wallpaer.png" alt=""></span> -->
+        </div>
+    </div>
+
+    <div class="btn">
+         <div class="prev"><--</div>
+        <div class="next">--></div>
+    </div>
+    
+    <script>
+        let scrollContainer = document.querySelector(".image-galery")
+        let back_btn = document.querySelector(".prev")
+        let next_btn = document.querySelector(".next")
+
+        // Scroll horizontally with mouse wheel
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        scrollContainer.style.scrollBehavior = "auto"
+
+    });
+
+    next_btn.addEventListener("click", ()=>{
+        scrollContainer.style.scrollBehavior = "smooth"
+        scrollContainer.scrollLeft += 900
+    })
+
+    back_btn.addEventListener("click", ()=>{
+        scrollContainer.scrollLeft -= 900
+        scrollContainer.style.scrollBehavior = "smooth"
+
+    })
+    
+    </script>
+</body>
+</html>
